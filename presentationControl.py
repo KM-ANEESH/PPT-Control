@@ -6,20 +6,8 @@ keyboard = Controller()
 
 cap = cv2.VideoCapture(0)
 
-#Un comment  the corect code 
-
-#Width  = int(cap.get(cv2.CAP_PROP_FRAME_Height)) 
-#Height  = int(cap.get(cv2.CAP_PROP_FRAME_Width))
-
-#width  = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)) 
-#height  = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)) 
-
-#width  = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)) 
-#height  = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-
-#width  = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)) 
-#height  = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-
+width  = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)) 
+height  = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)) 
 
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
@@ -59,23 +47,9 @@ def countFingers(image, hand_landmarks, handNo=0):
 
         
         totalFingers = fingers.count(1)
-      
         # Control presentation
-        #Un comment  the corect code below
-
-        #finger_tip_y = (landmarks[8].x)*width
-        #finger_tip_x = (landmarks[8].y)*height
-
-        #finger_tip_x = (landmarks[8].x)*height
-        #finger_tip_y = (landmarks[8].y)*width
-
-        #finger_tip_x = (landmarks[8].x)*width
-        #finger_tip_y = (landmarks[8].y)*height
-
-        #finger_tip_x = (landmarks[8].x)*Width
-        #finger_tip_y = (landmarks[8].y)*Height
-        
-        
+        finger_tip_x = (landmarks[8].x)*width
+        finger_tip_y = (landmarks[8].y)*height
         if totalFingers >= 1:
             if  finger_tip_x < height-250:
                 print("scroll Up")
